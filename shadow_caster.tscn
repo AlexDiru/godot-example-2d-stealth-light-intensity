@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpo2bj6d4lriu"]
+
+[ext_resource type="Texture2D" uid="uid://cyt8owmr07a14" path="res://caster.png" id="1_mjcfr"]
+
+[sub_resource type="OccluderPolygon2D" id="1"]
+polygon = PackedVector2Array(-15.913, -15.9738, 15.9079, -16.0785, 15.6986, 15.847, -16.1223, 15.9517)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk3yk"]
+size = Vector2(32, 32)
+
+[node name="ShadowCaster" type="Sprite2D"]
+position = Vector2(95.2909, 85.3186)
+texture = ExtResource("1_mjcfr")
+
+[node name="Occluder" type="LightOccluder2D" parent="."]
+occluder = SubResource("1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.290901, -0.318604)
+shape = SubResource("RectangleShape2D_pk3yk")
